@@ -1,6 +1,7 @@
 ---
 import Logo from "@components/Logo.astro";
 import menu from "@config/menu.json";
+import { Icon } from 'astro-icon/components';
 
 export interface ChildNavigationLink {
   name: string;
@@ -86,6 +87,9 @@ const { main }: { main: NavigationLink[] } = menu;
       }
     </ul>
     <div class="order-1 ml-auto flex md:order-2 md:ml-0">
+      <a href="/blog.xml" target="_blank" title="RSS Feed">
+        <Icon name="uil:rss" />
+      </a>
     </div>
   </nav>
 </header>

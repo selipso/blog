@@ -61,6 +61,13 @@ const { title, meta_title, description, image, noindex, canonical } =
     <meta name="generator" content={Astro.generator} />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
+    <!-- RSS feed -->
+    <link
+      rel='alternate'
+      href='https://kapisce.com/blog.xml'
+      type='application/rss+xml'
+    />
+
     <!-- google font css -->
     <AstroFont
       config={[
