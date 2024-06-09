@@ -1,13 +1,12 @@
 ---
 import { Image } from "astro:assets";
-import AuthorSingle from "@/layouts/AuthorSingle.astro";
-import Base from "@/layouts/Base.astro";
-import { getSinglePage } from "@/lib/contentParser.astro";
-import dateFormat from "@/lib/utils/dateFormat";
+import AuthorSingle from "@layouts/AuthorSingle.astro";
+import Base from "@layouts/Base.astro";
+import { getSinglePage } from "@lib/contentParser.astro";
+import dateFormat from "@lib/utils/dateFormat";
 
-import { sortByDate } from "@/lib/utils/sortFunctions";
-import { humanize, slugify } from "@/lib/utils/textConverter";
-import { BiCalendarEdit, BiCategoryAlt } from "react-icons/bi";
+import { sortByDate } from "@lib/utils/sortFunctions";
+import { humanize, slugify } from "@lib/utils/textConverter";
 
 export async function getStaticPaths() {
   const authors = await getSinglePage("authors");
@@ -68,11 +67,9 @@ const currentPosts = sortPostsByDate.filter((post) => {
                 )}
                 <ul class="mt-4 text-text flex flex-wrap items-center text-sm">
                   <li class="mb-2 mr-4 flex items-center flex-wrap font-medium">
-                    <BiCalendarEdit className="mr-1 h-[16px] w-[16px] text-gray-600" />
                     <>{dateFormat(post.data.date)}</>
                   </li>
                   <li class="mb-2 mr-4 flex items-center flex-wrap">
-                    <BiCategoryAlt className="mr-1 h-[16px] w-[16px] text-gray-600" />
                     <>
                       <ul>
                         {post.data.categories.map(
